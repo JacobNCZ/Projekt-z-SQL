@@ -1,20 +1,46 @@
-CREATE TABLE milk_bread
+CREATE TABLE t_jakub_narozny_project_sql_task02
 	SELECT
-		industry_branch_code,
-		industry_name,
-		payroll_value,
-		product_name,
+		DISTINCT(product_code),
+		price_year,
 		product_price,
-		price_value,
-		price_unit,
-		price_year 
+		SUM(payroll_value) AS total_payroll_value,
+		ROUND((SUM(payroll_value)/product_price),2) AS possible_qty
 	FROM t_jakub_narozny_project_sql_primary_final
-	WHERE product_name IN ('Mléko polotučné pasterované', 'Chléb konzumní kmínový') AND price_year IN (2006, 2018);
+	WHERE price_year = (SELECT MIN(price_year) FROM t_jakub_narozny_project_sql_primary_final) AND 
+		product_code = 111301
+	GROUP BY product_code, price_year, product_price
+UNION
+	SELECT
+		DISTINCT(product_code),
+		price_year,
+		product_price,
+		SUM(payroll_value) AS total_payroll_value,
+		ROUND((SUM(payroll_value)/product_price),2) AS possible_qty
+	FROM t_jakub_narozny_project_sql_primary_final
+	WHERE price_year = (SELECT MAX(price_year) FROM t_jakub_narozny_project_sql_primary_final) AND 
+		product_code = 111301
+	GROUP BY product_code, price_year, product_price
+UNION
+	SELECT
+		DISTINCT(product_code),
+		price_year,
+		product_price,
+		SUM(payroll_value) AS total_payroll_value,
+		ROUND((SUM(payroll_value)/product_price),2) AS possible_qty
+	FROM t_jakub_narozny_project_sql_primary_final
+	WHERE price_year = (SELECT MIN(price_year) FROM t_jakub_narozny_project_sql_primary_final) AND 
+		product_code = 114201
+	GROUP BY product_code, price_year, product_price
+UNION
+	SELECT
+		DISTINCT(product_code),
+		price_year,
+		product_price,
+		SUM(payroll_value) AS total_payroll_value,
+		ROUND((SUM(payroll_value)/product_price),2) AS possible_qty
+	FROM t_jakub_narozny_project_sql_primary_final
+	WHERE price_year = (SELECT MAX(price_year) FROM t_jakub_narozny_project_sql_primary_final) AND 
+		product_code = 114201
+	GROUP BY product_code, price_year, product_price;
 
-ALTER TABLE milk_bread
-ADD possible_qty decimal(10,2); 
-
-UPDATE milk_bread
-SET possible_qty = (payroll_value / product_price);
-
-SELECT * FROM milk_bread;
+SELECT * FROM t_jakub_narozny_project_sql_task02;
