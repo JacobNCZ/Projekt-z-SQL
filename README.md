@@ -15,10 +15,12 @@ Výzkumné otázky – izolované úkoly v jednotlivých SQL scriptech – SQL d
 5.	Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?
    
 Jednotlivé SQL scripty:
-1.	creating_table_primary_final – vytvoření tabulky: „t_jakub_narozny_project_SQL_primary_final“
-2.	creating_table_secondary_final – vytvoření tabulky: „t_jakub_narozny_project_SQL_secondary_final“
-3.	1st_task – výstupní data jsou přímo v SQL dotazu bez vytvoření tabulky
-4.	2nd_task – výstupní data se uloží do tabulky „milk_bread“
-5.	3rd_task – vytvoří se tabulka „czechia_price_growth_rate“ a tabulka „products_lowest_growth_rate“
-6.	4th_task – vytvoří se tabulka „payroll_growth_rate“ a tabulka „total_payroll_growth_rate“
-7.	5th_task – aktualizuje se tabulka „total_payroll_growth_rate“
+1.	creating_table_primary_final – vytvoření tabulky: t_jakub_narozny_project_sql_primary_final
+2.	creating_table_secondary_final – vytvoření tabulky: t_jakub_narozny_project_sql_secondary_final
+3.	1st_task –vytvoření tabulky t_jakub_narozny_project_sql_task01 a zobrazení výstupních dat pomocí sql dotazu
+4.	2nd_task – výstupní data se uloží do tabulky t_jakub_narozny_project_sql_task02
+5.	2nd_task_procedures – druhý způsob řešení zadání pomocí procedur
+6.	3rd_task – výstupní data se uloží do tabulky t_jakub_narozny_project_sql_task03
+7.	4th_task – vytvoření tabulky t_jakub_narozny_project_sql_task04 a zobrazení výstupních dat pomocí sql dotazu
+8.	5th_task – výstupní data se uloží do tabulky tabulky t_jakub_narozny_project_sql_task05
+
